@@ -8,6 +8,7 @@ using SLZ.Marrow.Utilities;
  
 using UltEvents;
 using UnityEngine;
+using SLZ.Marrow.Data;
 #if UNITY_EDITOR
 using UnityEditor;
 
@@ -22,6 +23,9 @@ namespace SLZ.Marrow.Warehouse
         [Tooltip("Drag a Spawnable Crate from the Asset Warehouse or use the picker button to the right to select a Spawnable Crate.")]
         [SerializeField]
         public SpawnableCrateReference spawnableCrateReference = new SpawnableCrateReference(Barcode.EmptyBarcode());
+        [SerializeField]
+        [Tooltip("Policy Data is a ScriptableObject that is used to define whether policy rules should apply on a per-crate basis, the maximum spawn pool size, and how the pool of spawnables should handle reaching their maximum limit, i.e. Reuse the Oldest, Grow, Reuse the Newest, etc.")]
+        public SpawnPolicyData policyData;
         [SerializeField]
         public CrateQuery crateQuery = new CrateQuery();
         [SerializeField]
